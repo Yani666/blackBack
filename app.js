@@ -54,12 +54,16 @@ app.use( passport.session() )
 const index = require('./routes/index');
 const auth = require('./routes/authRoutes');
 const products = require('./routes/productsRouter')
+const suggestion = require('./routes/suggestionRoute')
+const orders = require('./routes/ordersRoutes')
 
 
 
 app.use('/api', index);
 app.use('/api/auth', auth)
 app.use('/api/products', products)
+app.use('/api/suggestion', suggestion)
+app.use('/api/orders', orders)
 
 
 module.exports = app;

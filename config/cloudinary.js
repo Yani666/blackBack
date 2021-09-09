@@ -8,28 +8,14 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-const studio = new CloudinaryStorage({
+const storage = new CloudinaryStorage({
     cloudinary,
-    /* params: (req, file) =>{
-        return {
-            folder: 'black_Images',
-            allowedFormats: ['png', 'jpg', 'PDF', 'pdf','jpeg'],
-            fileFilter: function(req, file, cb){
-                if(!file.originalname.match(/\.(pdf|jpg|png|jpeg)$/)){
-                    return cb(new Error('el archivo no es valido'))
-                }
-                cb(null, file.originalname)
-            },
-            public_id: `app-${file.originalname}`
-        }
-    } */
+    
     params:{
-        folder:"black_Images",
-        allowedFormats: ['png', 'jpg', 'PDF', 'pdf','jpeg'],
-        use_filename: true
+        folder:"studio",
+        allowedFormats:["jpg","png","jpeg","pdf"]
     }
-})
-
-const uploadDoc = multer({studio})
-
-module.exports = uploadDoc
+   
+});
+const uploadCloud = multer({storage})
+module.exports = uploadCloud

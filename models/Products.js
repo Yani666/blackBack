@@ -4,11 +4,12 @@ const productSchema = new Schema({
 
     title: String,
     description: String,
-    price: Number,
-    img:[{
-        name:String,
-        newPath:{id: String,
-        url: String}}],
+    price: String,
+    img:{
+        type:[String]
+    },
+    
+    category:{type:String, enum:["zapatos", "ropa", "accesorios"]},
 
     available:{
         type: Boolean,

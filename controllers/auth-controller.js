@@ -16,7 +16,8 @@ exports.signUp = async (req,res,next)=>{
                 username,
                 password:hasPass,
                 ...restUser
-            })
+            }) 
+
         res.status(201).json({result:newUser})
 
     }catch(error){
@@ -39,6 +40,7 @@ exports.login = (req,res,next)=>{
             if(err){
                 return res.status(500).json({ error: err })
             }
+            // req.user=user
             res.status(200).json({result:user})
         })
     })(req,res,next)
@@ -52,5 +54,7 @@ exports.loggedUser = (req, res, next) => {
 
 exports.logout = (req, res, next) =>{
     req.logout()
+    // req.user({})
     res.status(200).json({msg:"Logged out"})
+    
 }

@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 
 const transport = nodemailer.createTransport({
-    service: 'Sendgrid',
+    service: 'Gmail',
     auth: {
         user: process.env.SGUSER,
         pass: process.env.SGPASS

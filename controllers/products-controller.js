@@ -19,7 +19,7 @@ exports.createProducts = (req,res) =>{
 
 exports.updateProducts = (req, res) =>{
     const {id} = req.params
-    let img
+    let {img} = req.body
     if(req.files){
         console.log(req.files)
         img = req.files.map((file)=> file.path)

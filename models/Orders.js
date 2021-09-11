@@ -9,8 +9,11 @@ const orderSchema = new Schema({
     },
     price: Number,
     _products:{
-        type:[Schema.Types.ObjectId],
-        ref: "Products",
+        type:[{title: String,
+            description: String,
+            price: String,
+            cant:Number,
+            totalXcant:Number}],
         require:true
     }
 

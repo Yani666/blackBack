@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.FRONTENDPOINT, "https://studioblack.netlify.app"]
+    origin: [process.env.FRONTENDPOINT, "https://studioblack.netlify.app", "https://blackstudio.herokuapp.com"]
   })
 );
 
@@ -65,5 +65,8 @@ app.use('/api/products', products)
 app.use('/api/suggestion', suggestion)
 app.use('/api/orders', orders)
 
-
+//una ueva ruta que tome por  defecto cuando refresquemo
+app.use('*', (req,res)=>{
+    res.sendFile(path.join(__dirname,"public","index.html"))
+})
 module.exports = app;

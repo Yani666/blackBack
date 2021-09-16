@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.FRONTENDPOINT, "https://blackstudio.netlify.app"]
+    origin: [process.env.FRONTENDPOINT, "https://studioblack.netlify.app"]
   })
 );
 
